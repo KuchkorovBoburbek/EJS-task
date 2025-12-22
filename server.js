@@ -27,6 +27,9 @@ app.get("/home", function (req, res) {
   res.end(`<h1>Siz home pagedasiz</h1>`);
 });
 
+app.get("/gift", function (req, res) {
+  res.end(`<h1>Siz gift pagedasiz</h1>`);
+});
 
 const server = http.createServer(app);
 let PORT = 3000;
