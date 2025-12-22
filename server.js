@@ -20,19 +20,19 @@ app.set("view engine", "ejs")
 
 //4 
 app.get("/", function(req, res){
-    res.end(`<h1>Hello World by Mark</h1>`);
+    res.end(`<h1>Hello World by Mark Boburbek</h1>`);
 })
 
 app.get("/home", function (req, res) {
-  res.end(`<h1>Siz home pagedasiz</h1>`);
+  res.end(`<h1>Siz home pagedasiz</h1>`); //res.send()
 });
 
 app.get("/gift", function (req, res) {
-  res.end(`<h1>Siz gift pagedasiz</h1>`);
+  res.end(`<h1>Siz gift pagedasiz</h1>`); //res.send() 
 });
 
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function(){
-    console.log(`Server ushbu portda yaxshi ishlayabdi: ${PORT}`);
+    console.log(` 서버가 정상 작동 중입니다: ${PORT}`);
 })
