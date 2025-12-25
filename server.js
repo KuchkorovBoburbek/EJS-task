@@ -6,6 +6,18 @@
 const express = require("express");
 const app = express();
 const http = require("http")
+const fs = require("fs");
+
+
+let user; 
+fs.readFile("databese/user.json", "utf8", (err, data)=>{
+  if(err){
+    console.log("ERROR", err)
+  } else{
+    user = JSON.parse(data)
+  }
+})
+
 
 //1 
 app.use(express.static("public"));
@@ -19,17 +31,10 @@ app.set("view engine", "ejs")
 
 
 //4 
-app.get("/first", function(req, res){
-    res.end(`<h1>Hello World by Mark Boburbek</h1>`);
-})
-
-app.get("/home", function (req, res) {
-  res.end(`<h1>Siz home pagedasiz</h1>`); //res.send()
+app.get("/author", function (req, res) {
+  res.render("author", {user: user});
 });
 
-app.get("/gift", function (req, res) {
-  res.end(`<h1>Siz gift pagedasiz</h1>`); //res.send() 
-});
 
 app.get("/", function (req, res) {
   res.render("project"); //res.send()

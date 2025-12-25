@@ -1,0 +1,55 @@
+{
+  "name": "Mark",
+  "profession": "Software Engineer",
+  "age": 23,
+  "residence": "BD",
+  "freelance": "Available",
+  "adress": "S.Korea, Busan",
+  "languages": ["Uzbek", "Korean", "English"],
+  "skills": ["Html", "Css", "Js", "NodeJS", "Python"],
+  "skills_pro": ["90%", "85%", "80%", "75%", "85%"],
+  "extra_skills": [
+    "Bootstrap, Materialize",
+    "Styling, Sass",
+    "Django, Flask",
+    "GIT Knowledge"
+  ],
+  "work_place": "Doctor neurologistsin OHSU Hospital",
+  "service_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.",
+  "about_me": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis.",
+  "city": "Denau",
+  "title": ["Flower", "Seedlings", "Gardner", "Old", "New"],
+  "flower_desc": [
+    "What is a Flower?",
+    "What is a Seedling?",
+    "Who is Gardner?"
+  ],
+  "flower_name": [
+    "Tulip",
+    "Daffodil",
+    "Poppy",
+    "Poppy",
+    "Sunflower",
+    "Bluebell",
+    "Rose",
+    "Snowdrop",
+    "Cherry",
+    "blossom"
+  ],
+  "flower_price": [
+    "15$",
+    "25$",
+    "12$",
+    "20$",
+    "35$",
+    "30$",
+    "22$",
+    "19$",
+    "9$"
+  ],
+  "famous_words": ["world is Beautiful with Flowers"],
+  "services": ["Web development" , "UI/UX design", "Sound Design", "Game Design", "Photography", "Advertising"],
+  "about_services": [
+    "Blog, E-Commerce","Mobile App, Website Design", "Voice Over, Beat Making" , "Character Design, Props & Objects" , " Portrait, Product Photography" , "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. "
+  ]
+}
