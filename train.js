@@ -1,3 +1,68 @@
+// B - TASK
+// Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin. MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.\n\n@MITASK
+
+
+// 1- usul: Men o'ylagan for orali 
+// function getNum(string) {
+//   let count = 0;
+
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i] >= "0" && string[i] <= "9") { 
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+// console.log(getNum("ad2a54y79wet0sfgb9"));
+
+// Men bu yerda shunchaki typeof bilan hal qilmoqchi bolgnadim lekin 
+// string isidan kesib olingan raqamlar ham string ga hisoblanadi 
+
+
+//2- usul biz ko'rgan  validatordan foydalanib 
+// 
+
+
+const validator = require("validator");
+
+function getNum(string) {
+  let count = 0;
+
+  for (let num of string) {
+    if(validator.isInt(num)) { 
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(getNum("ad2a54y79wet0sfgb9"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // A-TASK: 
 
