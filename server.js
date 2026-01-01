@@ -40,11 +40,15 @@ app.get("/", function (req, res) {
   res.render("project"); //res.send()
 });
 
+app.get("/reja", function (req, res) {
+  res.render("reja"); //res.send()
+});
+
 
 
 
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function(){
-    console.log(`서버가 정상 작동 중입니다: ${PORT}`);
+    console.log(`서버가 정상 작동 중입니다: ${PORT} , http://localhost:${PORT}`);
 })
