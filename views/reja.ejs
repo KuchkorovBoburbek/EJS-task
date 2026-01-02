@@ -11,22 +11,59 @@
       crossorigin="anonymous"
     />
   </head>
+  <!-- <% %> bu sin dan foydalanib biz ejs da datalarni yoza olamiz -->
   <body style="background: #b8bbd1">
     <div class="container">
-      <h1 class="display-4 text-center py-1">Reja va Maqsadlar</h1>
+      <h1 class="display-3 text-center py-2">계획 및 목적 리스트</h1>
 
-      <div class="jumbotron p-3 shadow-sm">
-              <form action="/create-item" id="create-form" method="POST">
-        <div class="d-flex align-items-center " style="gap: 10px">
-          <input type="text" placeholder="Enter your text" id="create-fied" name="item" autofocus autocomplete="off" class="form-control mr-3" type="text" style="flex: 1;" />
-          <button class="btn btn-primary " style="border-radius: 20px;">Yangi Reja Qoshish</button>
-        </div>
-      </form>
+      <div
+        class="jumbotron p-3 shadow-sm"
+        style="
+          background-color: white;
+          border-radius: 8px;
+        "
+      >
+        <form action="/create-item" id="create-form" method="POST">
+          <div class="d-flex align-items-center" style="gap: 10px">
+            <input
+              type="text"
+              placeholder="할 일을 입력하세요"
+              id="create-fied"
+              name="reja"
+              autofocus
+              autocomplete="off"
+              class="form-control mr-3"
+              type="text"
+              style="flex: 1"
+            />
+            <button class="btn btn-primary" style="border-radius: 20px">
+              새 계획 추가
+            </button>
+          </div>
+        </form>
       </div>
-<button id="clean-all" class="btn btn-danger" style="border-radius: 20px;">
-  Hamma Rejalarni O'chirish
-</button>
+      <!-- <%=items[0].reja %>     = ni qiymat qiymat qaytaradidan hollarda qoyamiz -->
+
+      <!-- dbdagi har bir itemni olib kelib ui ga chiqarib berish uchun map dan foydalanamiz -->
+       <ul id="list-item" class="list-group mb-3 mt-3">
+      <% items.map((item)=>{%>
+      
+        <li
+          class="list-group-item list-group-item-info d-flex align-items-center justify-content-between" 
+        >
+          <span class="item-text"><%= item.reja%></span>
+           <div> <!-- endi har bir item id sini btnlarga biriktirib qpyamiz -->
+            <button data-id="<%=item._id%>" class="edit-me btn btn-secondary" btn-sm mr-1>수정</button>
+            <button data-id="<%=item._id%>" class="delete-me btn btn-danger" btn-sm>작제</button>
+          </div>
+        </li>
+      
+      <% })%>
+      </ul>
+
+      <button id="clean-all" class="btn btn-danger" style="border-radius: 20px">
+        모든 계획 지우기
+      </button>
     </div>
   </body>
 </html>
-

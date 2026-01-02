@@ -40,12 +40,37 @@ app.get("/author", function (req, res) {
 
 
 app.get("/", function (req, res) {
-  res.render("project"); //res.send()
+  console.log("User entered /");
+  db.collection("plans").find().toArray((err, data)=>{
+    if(err){
+      console.log(err)
+      res.end("Something went wrong")
+    } else{
+      // console.log(data) // bu yer hozircha bosh array qaytaradi, hali dbda data yozmadik .
+      // db ga datalar successfully yozildi endi datalar saf tortib kebyotibdi . endi bu datalarni biz ejsga yozamiz
+     
+      res.render("reja", {items: data})
+    }
+  })
+
+
+  // res.render("reja"); //res.send()
 });
 
-app.get("/reja", function (req, res) {
-  res.render("reja"); //res.send()
-});
+app.post("/create-item", (req, res)=>{
+  //TODO:code with db here
+  console.log("User entered /created item");
+  // res.end("success")  // biz endi shu rejani db gag yozamiz
+  const new_reja = req.body.reja;
+  db.collection("plans").insertOne({reja: new_reja}, (err, data)=>{ // insertOne - 1ta qoshish degan manoni anglatadi
+    if(err){
+      console.log(err);
+      res.end('Something went wrong!')
+    } else{
+      res.end('Successfully added')
+    }
+  })
+})
 
 
 
