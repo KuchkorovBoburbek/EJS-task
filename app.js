@@ -42,7 +42,9 @@ app.get("/author", function (req, res) {
 app.get("/", function (req, res) {
   console.log("User entered /");
   db.collection("plans").find().toArray((err, data)=>{
-    if(err){
+    
+
+    if(err){  //endi bu bizga kk emas chunki endi axiosdan foydalanamiz 
       console.log(err)
       res.end("Something went wrong")
     } else{
@@ -63,12 +65,19 @@ app.post("/create-item", (req, res)=>{
   // res.end("success")  // biz endi shu rejani db gag yozamiz
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({reja: new_reja}, (err, data)=>{ // insertOne - 1ta qoshish degan manoni anglatadi
-    if(err){
-      console.log(err);
-      res.end('Something went wrong!')
-    } else{
-      res.end('Successfully added')
-    }
+
+    console.log(data.ops);
+    res.json(data.ops[0]);
+    // mongodb 4+versiondan boshlab ops ishlamaydi 
+    //Ozi ops nima ? => bu mongo db ga oxirgi yozilgan datani ops ga solib qaytaradi 
+    // shuning ucun u 1 ta data boladi va [0] indexdagini olsak uni qolga olamiz
+    // endi quyidagi kkk emas chunki endi biz axiosdan req yuboramiz
+    // if(err){
+    //   console.log(err);
+    //   res.end('Something went wrong!')
+    // } else{
+    //   res.end('Successfully added')
+    // }
   })
 })
 
