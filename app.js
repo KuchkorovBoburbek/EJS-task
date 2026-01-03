@@ -5,6 +5,7 @@
 
 const express = require("express");
 const app = express();
+const mongodb =require("mongodb")
 
 const fs = require("fs");
 
@@ -66,7 +67,7 @@ app.post("/create-item", (req, res)=>{
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({reja: new_reja}, (err, data)=>{ // insertOne - 1ta qoshish degan manoni anglatadi
 
-    console.log(data.ops);
+    // console.log(data.ops);
     res.json(data.ops[0]);
     // mongodb 4+versiondan boshlab ops ishlamaydi 
     //Ozi ops nima ? => bu mongo db ga oxirgi yozilgan datani ops ga solib qaytaradi 
@@ -81,7 +82,14 @@ app.post("/create-item", (req, res)=>{
   })
 })
 
-
+app.post("/delete-item", (req, res)=>{
+  const id= req.body.id;
+  // console.log(id)
+  // res.end("done")
+  db.collection("plans").deleteOne({_id: new mongodb.ObjectId(id)}, (err, data)=>{ // biz fe dan yuborgan id string bolgani uchun uni mongodb id typepa ogirish uchun
+    res.json({state: 'success'})
+  })
+})
 
 
 

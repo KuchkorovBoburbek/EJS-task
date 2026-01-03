@@ -33,5 +33,33 @@ document
     .catch(err=>{
         console.log("다시 시도해주세요")
     })
+});
+
+document.addEventListener("click", function(e){
+
+    // delete oper
+    // console.log(e.target);
+    if (e.target.classList.contains("delete-me")) {
+    //   alert("siz deleteni bosdingiz");
+    if(confirm("Aniq ochirmoqchimisiz")){//
+        // alert("ha deb javob berildi ")
+    axios.post("/delete-item" , {id: e.target.getAttribute("data-id")})
+    .then((response)=>{
+        // console.log(response.data)
+    e.target.parentElement.parentElement.remove()
+    })
+    .catch(()=>{ 
+        console.log("qayta urining")
+    })
+    }
+    else{
+        // alert ("yoq deb javob berildi")
+    }
+    }
+
+
+    // edit oper
+    if (e.target.classList.contains("edit-me")) {
+      alert("siz updateni bosdingiz");
+    }
 })
-;
