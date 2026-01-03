@@ -1,6 +1,31 @@
+//C - task 
+// Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin. MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true.
+//by w3school 
+//Description
+// The split() method splits a string into an array of substrings.
+// The split() method returns the new array.
+// The split() method does not change the original string.
+// If (" ") is used as separator, the string is split between words.
 
+// The sort() method sorts the elements of an array
+// The sort() method sorts the elements as strings in alphabetical and ascending order.
 
+// The sort() method overwrites the original array.
+// The join() method returns an array as a string.
+// The join() method does not change the original array.
+// Any separator can be specified. The default is comma (,).
+const checkContent = (str1 ,str2) => {
 
+    let a = str1.split("").sort().join("");
+    let b = str2.split("").sort().join("");
+    console.log(a)
+    console.log(b)
+    if(a!==b){
+        return false;
+    }
+    return true;
+};
+console.log(checkContent("mashaqqatqil", "ilqshamqaqat"))
 
 
 
